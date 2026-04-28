@@ -47,9 +47,9 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBGpEJPtqxkKRiSMKr_9xrMri-8lHXMGJI',
-    appId: '1:831661784404:web:5dd1d12cf7c39a0e461cc1',
-    messagingSenderId: '831661784404',
+    apiKey: '---',
+    appId: '---',
+    messagingSenderId: '---',
     projectId: 'transfer-money-app',
     authDomain: 'transfer-money-app.firebaseapp.com',
     databaseURL: 'https://transfer-money-app-default-rtdb.firebaseio.com',
@@ -58,18 +58,18 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBcDo18JN0mLhPmP5DaI5AEhRfpkyw3Dp4',
-    appId: '1:831661784404:android:0a01e7db07986b1a461cc1',
-    messagingSenderId: '831661784404',
+    apiKey: '---',
+    appId: '---',
+    messagingSenderId: '---',
     projectId: 'transfer-money-app',
     databaseURL: 'https://transfer-money-app-default-rtdb.firebaseio.com',
     storageBucket: 'transfer-money-app.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCrmHRLitguTKoDnjnZvRNsi6bvI-ucll8',
-    appId: '1:831661784404:ios:c748bd315adbce14461cc1',
-    messagingSenderId: '831661784404',
+    apiKey: '---',
+    appId: '---',
+    messagingSenderId: '---',
     projectId: 'transfer-money-app',
     databaseURL: 'https://transfer-money-app-default-rtdb.firebaseio.com',
     storageBucket: 'transfer-money-app.appspot.com',
