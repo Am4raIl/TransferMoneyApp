@@ -1,90 +1,145 @@
-# 📱 UFES Bank - App de Transferências
-> **Projeto Mobile com Flutter e Firebase**
+<div align="center">
 
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+# 🏦 UFES Bank
+### Aplicativo de Carteira Digital com Flutter & Firebase
 
-## 📄 Descrição Geral
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
 
-O **UFES Bank** é um aplicativo de carteira digital desenvolvido para facilitar a transferência de valores entre contas. O diferencial do projeto é a integração de funcionalidades modernas de pagamento, permitindo que transações sejam iniciadas tanto pela digitação manual do CPF quanto pela **leitura de QR Codes** gerados dinamicamente pelo próprio app.
+*Transferências P2P via CPF e QR Code, com saldo em tempo real.*
 
-O sistema utiliza **Firebase Firestore** para autenticação de usuários e persistência de dados em tempo real, garantindo que o saldo seja atualizado instantaneamente após cada transação.
+[▶ Ver Demonstração no YouTube](https://youtu.be/PlM87PBHepA) · [Repositório](https://github.com/Am4raIl/TransferMoneyApp)
 
-## 📺 Demonstração
-
-Assista ao vídeo de apresentação e funcionamento do aplicativo:
-[▶️ Ver Demonstração no YouTube](https://youtu.be/PlM87PBHepA)
+</div>
 
 ---
 
-## 🚀 Funcionalidades Principais
+## 📄 Sobre o Projeto
 
-* **🔐 Autenticação Segura:** Login validado diretamente no banco de dados (Firestore) via CPF e senha.
-* **💸 Transferência P2P:** Envio de dinheiro entre contas cadastradas utilizando o CPF do destinatário.
-* **📷 Leitura de QR Code:** Utiliza a câmera do dispositivo para escanear o QR Code de outro usuário e preencher automaticamente os dados de transferência.
-* **🔳 Geração de QR Code:** Cada usuário pode gerar seu próprio QR Code (contendo seu CPF) para receber pagamentos.
-* **💰 Saldo em Tempo Real:** Atualização instantânea do saldo na tela inicial após envios ou recebimentos.
+O **UFES Bank** é uma carteira digital desenvolvida como projeto acadêmico na **Universidade Federal do Espírito Santo**, com foco em demonstrar a integração entre Flutter, Firebase Firestore e sensores de câmera. O app permite transferências entre contas tanto por digitação de CPF quanto por leitura de **QR Codes gerados dinamicamente pelo próprio aplicativo**. O saldo é atualizado em tempo real após cada transação.
+
+---
+
+## 🚀 Funcionalidades
+
+| Funcionalidade | Descrição |
+|:---|:---|
+| 🔐 **Autenticação via CPF** | Login validado diretamente no Firestore com CPF e senha |
+| 💸 **Transferência P2P** | Envio de valores entre contas cadastradas usando o CPF do destinatário |
+| 📷 **Leitura de QR Code** | Câmera acionada para escanear o QR Code de outro usuário e pré-preencher a transferência |
+| 🔳 **Geração de QR Code** | Cada usuário pode gerar seu próprio QR Code (com CPF embutido) para receber pagamentos |
+| ⚡ **Saldo em Tempo Real** | Dashboard atualiza o saldo instantaneamente após envios e recebimentos |
+| 🛡️ **Validação de Destinatário** | O CPF de destino é verificado no Firestore antes de concluir qualquer transação |
 
 ---
 
 ## 🛠️ Tecnologias e Bibliotecas
 
-O projeto foi construído utilizando as seguintes tecnologias:
-
-* **[Flutter](https://flutter.dev/):** Framework principal para desenvolvimento UI.
-* **[Firebase Firestore](https://firebase.google.com/products/firestore):** Banco de dados NoSQL para armazenar usuários, senhas e saldos.
-* **[Flutter Barcode Scanner](https://pub.dev/packages/flutter_barcode_scanner):** Para leitura e decodificação dos QR Codes.
-* **[QR Flutter](https://pub.dev/packages/qr_flutter):** Para geração e renderização dos QR Codes na tela.
-* **[Intl](https://pub.dev/packages/intl):** Para formatação de valores monetários e datas.
+| Tecnologia | Uso no Projeto |
+|:---|:---|
+| [Flutter](https://flutter.dev) | Framework principal para desenvolvimento UI multiplataforma |
+| [Firebase Firestore](https://firebase.google.com/products/firestore) | Banco de dados NoSQL em nuvem para usuários, senhas e saldos |
+| [qr_flutter](https://pub.dev/packages/qr_flutter) `^4.1.0` | Geração e renderização de QR Codes na tela |
+| [flutter_barcode_scanner](https://pub.dev/packages/flutter_barcode_scanner) `^2.0.0` | Leitura e decodificação de QR Codes via câmera |
+| [intl](https://pub.dev/packages/intl) `^0.18.1` | Formatação de valores monetários (R$ pt-BR) |
+| [firebase_core](https://pub.dev/packages/firebase_core) `^2.22.0` | Inicialização do Firebase no app |
 
 ---
 
 ## 📂 Estrutura do Projeto
 
-A organização do código segue uma arquitetura simples baseada em telas (Pages):
-
-| Arquivo | Responsabilidade |
-| :--- | :--- |
-| `main.dart` | Ponto de entrada e inicialização do Firebase. |
-| `loginpage.dart` | Tela de autenticação (CPF/Senha) e validação no Firestore. |
-| `homepage.dart` | Dashboard principal, exibe saldo e menu de ações. |
-| `transferpage.dart` | Tela para digitar valor e realizar a transferência. |
-| `generateqrcode.dart` | Gera o código visual para receber transferências. |
-| `readqrcode.dart` | Ativa a câmera para ler tickets/CPFs de terceiros. |
+```
+TransferMoneyApp/
+├── lib/
+│   ├── main.dart               # Ponto de entrada e inicialização do Firebase
+│   ├── firebase_options.dart   # Configurações geradas pelo FlutterFire CLI
+│   ├── loginpage.dart          # Autenticação por CPF/Senha com consulta ao Firestore
+│   ├── homepage.dart           # Dashboard com saldo, menu lateral e ações
+│   ├── transferpage.dart       # Formulário e lógica de transferência entre contas
+│   ├── generateqrcode.dart     # Tela para gerar QR Code pessoal para receber pagamentos
+│   └── readqrcode.dart         # Câmera para escanear QR Codes e iniciar transferência
+├── assets/
+│   └── images/                 # Logotipos e avatar
+└── pubspec.yaml
+```
 
 ---
 
-## 🔧 Como Executar o Projeto
+## 🔧 Como Executar
 
 ### Pré-requisitos
-* Flutter SDK instalado.
-* Dispositivo físico ou emulador Android/iOS configurado.
-* Projeto configurado no Console do Firebase.
+
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) instalado (Dart ≥ 3.1.5)
+- Dispositivo físico ou emulador Android/iOS configurado
+- Projeto configurado no [Console do Firebase](https://console.firebase.google.com)
 
 ### Passo a Passo
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/seu-usuario/TransferMoneyApp.git](https://github.com/seu-usuario/TransferMoneyApp.git)
-    ```
+**1. Clone o repositório**
+```bash
+git clone https://github.com/Am4raIl/TransferMoneyApp.git
+cd TransferMoneyApp
+```
 
-2.  **Instale as dependências:**
-    ```bash
-    flutter pub get
-    ```
+**2. Instale as dependências**
+```bash
+flutter pub get
+```
 
-3.  **Configuração do Firebase:**
-    * Certifique-se de que o arquivo `firebase_options.dart` está configurado corretamente para o seu projeto ou adicione o arquivo `google-services.json` (Android) / `GoogleService-Info.plist` (iOS) nas pastas nativas.
+**3. Configure o Firebase**
 
-4.  **Execute o aplicativo:**
-    ```bash
-    flutter run
-    ```
+Certifique-se de que o `firebase_options.dart` está apontando para o seu projeto Firebase. Ou adicione os arquivos de configuração nas pastas nativas:
+```
+android/app/google-services.json       # Android
+ios/Runner/GoogleService-Info.plist    # iOS
+```
+
+**4. Execute o aplicativo**
+```bash
+flutter run
+```
 
 ---
 
-## 📝 Observações
-Este aplicativo foi desenvolvido como parte de um trabalho acadêmico. A lógica de transação é simplificada (client-side) para fins de demonstração de interface e uso de sensores (câmera).
+## 🗃️ Estrutura do Banco de Dados (Firestore)
+
+A coleção `users` armazena os dados de cada conta:
+
+```json
+{
+  "cpf":   "12345678900",
+  "nome":  "Maria Silva",
+  "email": "maria@ufes.br",
+  "senha": "senha123",
+  "saldo": 1500.00
+}
+```
+
+> 💡 **Nota:** A autenticação é feita com consulta direta ao Firestore (sem Firebase Authentication). Para produção, recomenda-se migrar para Firebase Auth e mover a lógica de transferência para **Cloud Functions**.
 
 ---
+
+## ⚠️ Segurança e Limitações
+
+> **Atenção:** As chaves de API do Firebase presentes em `firebase_options.dart` estão expostas no repositório público. Isso é aceitável para projetos acadêmicos com regras de segurança restritas no Firestore, mas **nunca deve ser feito em produção**.
+
+Limitações conhecidas do projeto por ser um trabalho acadêmico:
+
+- A lógica de transferência é processada **client-side** (sem backend dedicado)
+- Senhas armazenadas em **texto simples** no Firestore
+- Sem proteção contra condições de corrida em transferências simultâneas
+
+---
+
+## 📝 Observações Acadêmicas
+
+Este aplicativo foi desenvolvido como trabalho acadêmico na **UFES**. O objetivo principal é demonstrar a integração de tecnologias mobile modernas — especialmente o uso da câmera como sensor e a sincronização de dados em tempo real via Firebase. A arquitetura simplificada é intencional para fins didáticos.
+
+---
+
+<div align="center">
+
+Desenvolvido como projeto acadêmico · **UFES Bank** · Flutter + Firebase
+
+</div>
