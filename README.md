@@ -140,6 +140,6 @@ Este aplicativo foi desenvolvido como trabalho acadêmico na **UFES**. O objetiv
 
 <div align="center">
 
-Desenvolvido como projeto acadêmico · **UFES Bank** · Flutter + Firebase
+Desenvolvido por Felipe Kitamoto Amaral como projeto acadêmico · **UFES Bank** · Flutter + Firebase
 
 </div>
